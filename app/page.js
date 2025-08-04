@@ -27,7 +27,6 @@ import {
   RadialBar,
   Legend,
 } from "recharts";
-import CustomersDemographic from "@/components/CustomersDemographic";
 import RecentOrders from "@/components/orders/RecentOrders";
 import { BadgeDollarSign, CalendarArrowDown, Users } from "lucide-react";
 import StackedRadial from "@/components/charts/radialChart/StackedRadial";
@@ -127,7 +126,6 @@ const Home = () => {
         <StackedRadial />
         <MetricsOverview />
       </div>
-      <CustomersDemographic />
       <RecentOrders />
       {/* Area Chart - Sales & Profit */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
