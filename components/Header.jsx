@@ -1,0 +1,202 @@
+"use client";
+
+import React, { useContext, useState } from "react";
+import { useTheme } from "next-themes";
+import { Menu, Bell, Sun, Moon, X } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { LogOut, Settings, HelpCircle, Pencil } from "lucide-react";
+import { Context } from "@/context/Context";
+
+const initialNotifications = [
+  {
+    id: 1,
+    user: "Terry Franci",
+    message: "requests permission to change Project - Nganter App",
+    time: "5 min ago",
+    thumb: "https://i.pravatar.cc/40?u=1",
+  },
+  {
+    id: 2,
+    user: "Alena Franci",
+    message: "requests permission to change Project - Nganter App",
+    time: "8 min ago",
+    thumb: "https://i.pravatar.cc/40?u=2",
+  },
+  {
+    id: 3,
+    user: "Jocelyn Kenter",
+    message: "requests permission to change Project - Nganter App",
+    time: "15 min ago",
+    thumb: "https://i.pravatar.cc/40?u=3",
+  },
+  {
+    id: 4,
+    user: "Brandon Philips",
+    message: "requests permission to change Project - Nganter App",
+    time: "1 hr ago",
+    thumb: "https://i.pravatar.cc/40?u=4",
+  },
+  // repeat if needed
+];
+
+const Header = () => {
+  const { theme, setTheme } = useTheme();
+  const [notifications, setNotifications] = useState(initialNotifications);
+
+  const handleDismiss = (id) => {
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
+  };
+
+  const { sidebar, sidehandler } = useContext(Context);
+
+  return (
+    <header className="flex justify-between items-center bg-sidebar/50 px-4 lg:px-6 border-b border-border h-20 text-foreground transition-colors">
+      {/* Left: Menu + Search */}
+      <div className="flex items-center gap-4">
+        <button
+          aria-label="Toggle menu"
+          className="bg-muted hover:bg-muted/80 p-2 rounded-lg transition-colors cursor-pointer"
+          onClick={sidehandler}
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+
+        <input
+          type="text"
+          placeholder="Search..."
+          aria-label="Search"
+          className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-xs lg:w-sm placeholder:text-muted-foreground text-sm transition-all"
+        />
+      </div>
+
+      {/* Right: Theme Toggle, Notification, Profile */}
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          aria-label="Toggle theme"
+          className="bg-muted hover:bg-muted/80 p-2 rounded-lg transition-colors"
+        >
+          {theme === "dark" ? (
+            <Sun className="w-5 h-5" />
+          ) : (
+            <Moon className="w-5 h-5" />
+          )}
+        </button>
+        {/* notification */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button
+              aria-label="Notifications"
+              className="relative bg-muted hover:bg-muted/80 p-2 rounded-lg transition-colors"
+            >
+              <Bell className="w-5 h-5" />
+              {notifications.length > 0 && (
+                <span className="top-1 right-1 absolute bg-red-500 rounded-full w-2 h-2" />
+              )}
+            </button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent className="p-0 w-fit max-h-[400px] overflow-y-auto">
+            <div className="p-3 border-b">
+              <h4 className="font-semibold text-sm">Notifications</h4>
+            </div>
+
+            {notifications.length === 0 && (
+              <div className="p-4 text-muted-foreground text-sm text-center">
+                No new notifications
+              </div>
+            )}
+
+            {notifications.map((n) => (
+              <div
+                key={n.id}
+                className="relative flex items-start gap-3 hover:bg-muted/50 p-3"
+              >
+                <img
+                  src={n.thumb}
+                  alt={n.user}
+                  className="border rounded-full w-10 h-10"
+                />
+                <div className="flex-1">
+                  <p className="font-medium text-sm">{n.user}</p>
+                  <p className="text-muted-foreground text-xs">{n.message}</p>
+                  <p className="mt-1 text-gray-400 text-xs">{n.time}</p>
+                </div>
+                <button
+                  onClick={() => handleDismiss(n.id)}
+                  className="top-2 right-2 absolute text-gray-400 hover:text-red-500"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            ))}
+
+            {notifications.length > 0 && (
+              <>
+                <DropdownMenuSeparator />
+                <div className="py-2 text-center">
+                  <button className="text-blue-600 text-sm hover:underline">
+                    View All Notifications
+                  </button>
+                </div>
+              </>
+            )}
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        {/* dropdown sjhadcn */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <div className="flex items-center gap-2 cursor-pointer select-none">
+              <img
+                src="https://i.pravatar.cc/40?u=user"
+                alt="User profile"
+                className="ring-border rounded-full ring-2 w-8 h-8"
+              />
+              <h4 className="font-medium text-sm">Mosharof</h4>
+            </div>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent className="mt-2 w-64">
+            <div className="px-3 py-2">
+              <p className="font-semibold text-sm">Musharof Chowdhury</p>
+              <p className="text-muted-foreground text-xs">
+                randomuser@pimjo.com
+              </p>
+            </div>
+
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem className="gap-2">
+              <Pencil className="w-4 h-4" />
+              Edit Profile
+            </DropdownMenuItem>
+            <DropdownMenuItem className="gap-2">
+              <Settings className="w-4 h-4" />
+              Account Settings
+            </DropdownMenuItem>
+            <DropdownMenuItem className="gap-2">
+              <HelpCircle className="w-4 h-4" />
+              Support
+            </DropdownMenuItem>
+
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem className="gap-2 text-red-500">
+              <LogOut className="w-4 h-4" />
+              Sign Out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
