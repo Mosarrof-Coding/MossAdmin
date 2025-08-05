@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
                 <Header />
 
                 {/* Scrollable content area */}
-                <main className="flex-1 overflow-y-auto p-6">{children}</main>
+                <main className="flex-1 overflow-y-auto p-0">{children}</main>
               </div>
             </div>
           </ThemeProvider>

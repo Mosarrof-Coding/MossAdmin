@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import { useTheme } from "next-themes";
-import { Menu, Bell, Sun, Moon, X } from "lucide-react";
+import { Menu, Bell, Sun, Moon, X, Search } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -53,34 +53,49 @@ const Header = () => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  const { sidehandler } = useContext(Context);
+  const { sidebar, sidehandler } = useContext(Context);
+  const [abs, setAbs] = useState(null);
 
   return (
-    <header className="flex justify-between items-center gap-4 bg-sidebar/50 px-4 lg:px-6 border-b border-border h-14 lg:h-20 text-foreground transition-colors">
+    <header className="relative flex justify-between items-center gap-4 bg-sidebar/50 px-4 lg:px-6 border-b border-border text-foreground transition-colors">
       {/* Left: Menu + Search */}
       <div className="flex items-center gap-4 w-full">
         <button
           aria-label="Toggle menu"
-          className="bg-muted hover:bg-muted/80 p-1 sm:p-2 rounded transition-colors cursor-pointer"
+          className="bg-muted hover:bg-muted/80 my-2 p-2 rounded transition-colors cursor-pointer"
           onClick={sidehandler}
         >
           <Menu className="w-5 h-5" />
         </button>
 
-        <input
-          type="text"
-          placeholder="Search..."
-          aria-label="Search"
-          className="px-3 py-1 sm:py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full max-w-xs placeholder:text-muted-foreground text-sm transition-all"
-        />
+        <div className="flex items-center py-2 w-full min-h-full">
+          <span className="md:hidden" onClick={() => setAbs(!abs)}>
+            <Search className="opacity-80 w-6 md:w-6 cursor-pointer" />
+          </span>
+
+          <div
+            className={`w-full py-4 md:py-0 absolute md:static z-[5] ${
+              abs
+                ? "left-0 top-full bg-white dark:bg-gray-800 shadow-lg grid place-items-center "
+                : "md:block hidden"
+            }`}
+          >
+            <input
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+              className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full max-w-sm placeholder:text-muted-foreground text-sm transition-all"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Right: Theme Toggle, Notification, Profile */}
-      <div className="flex items-center gap-4 min-w-fit">
+      <div className="flex items-center gap-4 my-2 min-w-fit">
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           aria-label="Toggle theme"
-          className="bg-muted hover:bg-muted/80 p-1 sm:p-2 rounded transition-colors"
+          className="bg-muted hover:bg-muted/80 p-1 md:p-2 rounded transition-colors"
         >
           {theme === "dark" ? (
             <Sun className="w-4 sm:w-5 h-fit" />
@@ -93,11 +108,11 @@ const Header = () => {
           <DropdownMenuTrigger asChild>
             <button
               aria-label="Notifications"
-              className="relative bg-muted hover:bg-muted/80 p-1 sm:p-2 rounded transition-colors"
+              className="relative bg-muted hover:bg-muted/80 p-1 md:p-2 rounded transition-colors"
             >
               <Bell className="w-4 sm:w-5 h-fit" />
               {notifications.length > 0 && (
-                <span className="top-[5%] right-0.5 absolute bg-red-500 rounded-full w-[6px] sm:w-2 h-[6px] sm:h-2" />
+                <span className="top-[5%] right-0.5 absolute bg-red-500 rounded-full w-[6px] sm:w-2 h-[6px] md:h-2" />
               )}
             </button>
           </DropdownMenuTrigger>
@@ -157,7 +172,7 @@ const Header = () => {
               <img
                 src="https://i.pravatar.cc/40?u=user"
                 alt="User profile"
-                className="ring-border rounded-full ring-2 w-7 sm:w-8 h-7 sm:h-8"
+                className="ring-border rounded-full ring-2 w-7 md:w-8 h-7 sm:h-8"
               />
               <h4 className="hidden lg:block font-medium text-sm">Mosharof</h4>
             </div>
