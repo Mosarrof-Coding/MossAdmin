@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       >
         <ContextProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="flex h-screen text-foreground bg-amber-400">
+            <div className="flex h-screen text-foreground">
               {/* Sidebar */}
               <Sidebar />
 

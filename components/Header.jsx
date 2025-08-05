@@ -53,15 +53,15 @@ const Header = () => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  const { sidebar, sidehandler } = useContext(Context);
+  const { sidehandler } = useContext(Context);
 
   return (
-    <header className="flex justify-between items-center bg-sidebar/50 px-4 lg:px-6 border-b border-border h-20 text-foreground transition-colors">
+    <header className="flex justify-between items-center gap-4 bg-sidebar/50 px-4 lg:px-6 border-b border-border h-14 lg:h-20 text-foreground transition-colors">
       {/* Left: Menu + Search */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 w-full">
         <button
           aria-label="Toggle menu"
-          className="bg-muted hover:bg-muted/80 p-2 rounded-lg transition-colors cursor-pointer"
+          className="bg-muted hover:bg-muted/80 p-1 sm:p-2 rounded transition-colors cursor-pointer"
           onClick={sidehandler}
         >
           <Menu className="w-5 h-5" />
@@ -71,21 +71,21 @@ const Header = () => {
           type="text"
           placeholder="Search..."
           aria-label="Search"
-          className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-xs lg:w-sm placeholder:text-muted-foreground text-sm transition-all"
+          className="px-3 py-1 sm:py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full max-w-xs placeholder:text-muted-foreground text-sm transition-all"
         />
       </div>
 
       {/* Right: Theme Toggle, Notification, Profile */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 min-w-fit">
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           aria-label="Toggle theme"
-          className="bg-muted hover:bg-muted/80 p-2 rounded-lg transition-colors"
+          className="bg-muted hover:bg-muted/80 p-1 sm:p-2 rounded transition-colors"
         >
           {theme === "dark" ? (
-            <Sun className="w-5 h-5" />
+            <Sun className="w-4 sm:w-5 h-fit" />
           ) : (
-            <Moon className="w-5 h-5" />
+            <Moon className="w-4 sm:w-5 h-fit" />
           )}
         </button>
         {/* notification */}
@@ -93,11 +93,11 @@ const Header = () => {
           <DropdownMenuTrigger asChild>
             <button
               aria-label="Notifications"
-              className="relative bg-muted hover:bg-muted/80 p-2 rounded-lg transition-colors"
+              className="relative bg-muted hover:bg-muted/80 p-1 sm:p-2 rounded transition-colors"
             >
-              <Bell className="w-5 h-5" />
+              <Bell className="w-4 sm:w-5 h-fit" />
               {notifications.length > 0 && (
-                <span className="top-1 right-1 absolute bg-red-500 rounded-full w-2 h-2" />
+                <span className="top-[5%] right-0.5 absolute bg-red-500 rounded-full w-[6px] sm:w-2 h-[6px] sm:h-2" />
               )}
             </button>
           </DropdownMenuTrigger>
@@ -126,7 +126,7 @@ const Header = () => {
                 <div className="flex-1">
                   <p className="font-medium text-sm">{n.user}</p>
                   <p className="text-muted-foreground text-xs">{n.message}</p>
-                  <p className="mt-1 text-gray-400 text-xs">{n.time}</p>
+                  <p className="mt-1 text-xs">{n.time}</p>
                 </div>
                 <button
                   onClick={() => handleDismiss(n.id)}
@@ -157,9 +157,9 @@ const Header = () => {
               <img
                 src="https://i.pravatar.cc/40?u=user"
                 alt="User profile"
-                className="ring-border rounded-full ring-2 w-8 h-8"
+                className="ring-border rounded-full ring-2 w-7 sm:w-8 h-7 sm:h-8"
               />
-              <h4 className="font-medium text-sm">Mosharof</h4>
+              <h4 className="hidden lg:block font-medium text-sm">Mosharof</h4>
             </div>
           </DropdownMenuTrigger>
 
