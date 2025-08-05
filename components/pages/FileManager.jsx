@@ -125,19 +125,22 @@ export default function FileManager() {
   return (
     <div className="space-y-4 p-3 md:p-5">
       {/* Header */}
-      <div className="flex flex-wrap justify-between items-center gap-12">
-        <h2 className="w-sm font-bold text-2xl truncate">All Media</h2>
-        <div className="flex justify-end items-center gap-8 max-w-4xl">
-          <Input placeholder="Search..." className="bg-muted/10 w-sm" />
+      <div className="flex flex-wrap justify-between items-center gap-8 w-full">
+        <h2 className="w-fit sm:w-xs font-bold text-2xl truncate">All Media</h2>
+        <div className="flex md:justify-end items-center gap-4 w-full sm:w-sm md:max-w-4xl">
+          <Input
+            placeholder="Search..."
+            className="bg-muted/10 w-full sm:w-sm"
+          />
           <Button variant="default" className="bg-primary text-white">
-            <UploadCloud className="mr-2 w-4 h-4" />
+            <UploadCloud className="mr-1 w-4 h-4" />
             Upload File
           </Button>
         </div>
       </div>
 
       {/* Search + Media Overview */}
-      <div className="gap-4 grid md:grid-cols-3">
+      <div className="gap-4 grid w-full sm:max-w-sm">
         <Card className="col-span-1 shadow-sm p-4 border rounded-2xl">
           <h4 className="font-medium text-muted-foreground text-sm">
             Storage Details
@@ -198,25 +201,27 @@ export default function FileManager() {
           View All
         </Button>
       </div>
-      <div className="border rounded-xl overflow-auto">
+      <div className="mb-6 border rounded-xl overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-muted">
             <tr>
-              <th className="px-4 py-2 font-medium text-left">File Name</th>
-              <th className="px-4 py-2 text-left">Category</th>
-              <th className="px-4 py-2 text-left">Size</th>
-              <th className="px-4 py-2 text-left">Date Modified</th>
-              <th className="px-4 py-2 text-left">Action</th>
+              <th className="px-4 py-2 font-medium text-left truncate">
+                File Name
+              </th>
+              <th className="px-4 py-2 text-left truncate">Category</th>
+              <th className="px-4 py-2 text-left truncate">Size</th>
+              <th className="px-4 py-2 text-left truncate">Date Modified</th>
+              <th className="px-4 py-2 text-left truncate">Action</th>
             </tr>
           </thead>
           <tbody>
             {recentFiles.map((file, i) => (
               <tr key={i} className="hover:bg-muted/40 transition">
-                <td className="px-4 py-2">{file.name}</td>
-                <td className="px-4 py-2">{file.category}</td>
-                <td className="px-4 py-2">{file.size}</td>
-                <td className="px-4 py-2">{file.date}</td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 truncate">{file.name}</td>
+                <td className="px-4 py-2 truncate">{file.category}</td>
+                <td className="px-4 py-2 truncate">{file.size}</td>
+                <td className="px-4 py-2 truncate">{file.date}</td>
+                <td className="px-4 py-2 truncate">
                   <div className="flex gap-2">
                     <Button
                       size="icon"

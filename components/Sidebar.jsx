@@ -25,6 +25,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Context } from "@/context/Context";
+import Image from "next/image";
 
 const Sidebar = () => {
   // navigation links
@@ -99,7 +100,15 @@ const Sidebar = () => {
             setCurrentNav(false), setActive(false);
           }}
         >
-          <div className="text-3xl lg:text-4xl">💢</div>
+          <div className="text-3xl lg:text-4xl">
+            <Image
+              src={"/logo.png"}
+              alt="moss"
+              width={1000}
+              height={1000}
+              className="max-w-12"
+            />
+          </div>
           <div>
             <h3 className="font-bold text-2xl lg:text-3xl">MossAdmin</h3>
             <p className="text-[10px] text-chart-3 md:text-xs leading-1 md:leading-normal">
