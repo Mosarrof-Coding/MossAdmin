@@ -53,7 +53,7 @@ const Header = () => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  const { sidebar, sidehandler } = useContext(Context);
+  const { sidehandler } = useContext(Context);
   const [abs, setAbs] = useState(null);
 
   return (
@@ -68,23 +68,23 @@ const Header = () => {
           <Menu className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center py-2 w-full min-h-full">
+        <div className="flex items-center py-2">
           <span className="md:hidden" onClick={() => setAbs(!abs)}>
             <Search className="opacity-80 w-6 md:w-6 cursor-pointer" />
           </span>
 
           <div
-            className={`w-full px-4 py-4 md:py-0 absolute md:static z-[5] ${
+            className={`px-4 py-4 md:py-0 absolute md:static z-[5] ${
               abs
-                ? "left-0 top-full bg-white dark:bg-gray-800 shadow-lg grid place-items-center "
-                : "md:block hidden"
+                ? "left-0 top-full w-full bg-white dark:bg-gray-800 shadow-lg grid place-items-center "
+                : "md:block hidden w-full md:w-sm"
             }`}
           >
             <input
               type="text"
               placeholder="Search"
               aria-label="Search"
-              className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full md:w-sm placeholder:text-muted-foreground text-sm transition-all"
+              className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full placeholder:text-muted-foreground text-sm transition-all"
             />
           </div>
         </div>

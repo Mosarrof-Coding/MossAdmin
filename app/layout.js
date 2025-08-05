@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
 
                 {/* Scrollable content area */}
                 <div className="flex-1 overflow-y-auto p-0">
-                  <div className="h-[80vh]">{children}</div>
+                  <div className="h-[92vh]">{children}</div>
                 </div>
               </div>
             </div>
