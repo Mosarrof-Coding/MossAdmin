@@ -59,7 +59,7 @@ const Header = () => {
   return (
     <header className="relative flex justify-between items-center gap-4 bg-sidebar/50 px-4 lg:px-6 border-b border-border text-foreground transition-colors">
       {/* Left: Menu + Search */}
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-4">
         <button
           aria-label="Toggle menu"
           className="bg-muted hover:bg-muted/80 my-2 p-2 rounded transition-colors cursor-pointer"
@@ -74,7 +74,7 @@ const Header = () => {
           </span>
 
           <div
-            className={`w-full py-4 md:py-0 absolute md:static z-[5] ${
+            className={`w-full px-4 py-4 md:py-0 absolute md:static z-[5] ${
               abs
                 ? "left-0 top-full bg-white dark:bg-gray-800 shadow-lg grid place-items-center "
                 : "md:block hidden"
@@ -84,7 +84,7 @@ const Header = () => {
               type="text"
               placeholder="Search"
               aria-label="Search"
-              className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full max-w-sm placeholder:text-muted-foreground text-sm transition-all"
+              className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary w-full md:w-sm placeholder:text-muted-foreground text-sm transition-all"
             />
           </div>
         </div>

@@ -85,8 +85,8 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={` ${sidebar ? "hidden lg:flex " : "lg:hidden flex"}
-    flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground h-[100dvh] absolute left-0 top-0 lg:static z-10`}
+      className={`h-screen ${sidebar ? "hidden lg:flex " : "lg:hidden flex"}
+    flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground absolute left-0 top-0 lg:static z-10`}
     >
       {/* Top Logo/Header */}
       <header className="flex items-center gap-3 px-4 h-20">
