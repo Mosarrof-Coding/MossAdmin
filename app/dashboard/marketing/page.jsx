@@ -13,6 +13,8 @@ import {
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import MarketingStats from "@/components/orders/MarketingStats";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const campaignData = [
   { name: "Jan", clicks: 2400 },
@@ -32,14 +34,18 @@ const campaignData = [
 const MarketingPage = () => {
   return (
     <div className="space-y-4 p-3 md:p-5">
-      <div>
-        <h1 className="font-semibold text-xl tracking-tight">Marketing</h1>
-        <p className="text-muted-foreground">
-          Track your campaigns, engagement, and conversions.
-        </p>
+      {/* Page Header */}
+      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+        <h3 className="font-bold text-2xl">Marketing</h3>
+        <div className="flex items-center gap-2">
+          <Link href={"/"} className="text-xl">
+            Home
+          </Link>
+          <ChevronRight size={18} />
+          <h3 className="text-primary text-xl">Marketing</h3>
+        </div>
       </div>
 
-      <Separator />
       <MarketingStats />
       {/* Campaign Performance */}
       <Card>

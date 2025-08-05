@@ -16,10 +16,12 @@ import MonthlyTargetCard from "@/components/monthlyTargetCard/MonthlyTargetCard"
 import RecentOrders from "@/components/orders/RecentOrders";
 import {
   CalendarArrowDown,
+  ChevronRight,
   ShieldCheck,
   TicketSlash,
   UsersRound,
 } from "lucide-react";
+import Link from "next/link";
 
 const monthlySales = [
   { month: "Jan", revenue: 12500 },
@@ -44,16 +46,16 @@ const Ecommerce = () => {
   return (
     <div className="space-y-4 p-3 md:p-5">
       {/* Page Header */}
-      <div>
-        <h1 className="font-semibold text-foreground text-2xl">
-          Ecommerce Overview
-        </h1>
-        <p className="mt-1 text-muted-foreground text-sm">
-          Track your store performance, insights, and growth in real-time.
-        </p>
+      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+        <h3 className="font-bold text-2xl">E-Commerce</h3>
+        <div className="flex items-center gap-2">
+          <Link href={"/"} className="text-xl">
+            Home
+          </Link>
+          <ChevronRight size={18} />
+          <h3 className="text-primary text-xl">E-Commerce</h3>
+        </div>
       </div>
-
-      <Separator />
 
       {/* KPI Cards */}
       <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">

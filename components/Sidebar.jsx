@@ -91,7 +91,7 @@ const Sidebar = () => {
     flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground absolute left-0 top-0 lg:sticky z-10`}
     >
       {/* Top Logo/Header */}
-      <header className="flex items-center gap-3 px-4 py-1 md:py-2">
+      <header className="flex items-center gap-3 px-4 py-2">
         <Link
           href={"/"}
           className="flex items-center gap-3"
@@ -108,7 +108,7 @@ const Sidebar = () => {
           </div>
         </Link>
         <button
-          className="lg:hidden bg-muted hover:bg-muted/80 ms-auto p-0.5 md:p-1 rounded-lg transition-colors cursor-pointer"
+          className="lg:hidden hover:bg-muted/80 ms-auto p-0.5 md:p-1 rounded-lg transition-colors cursor-pointer"
           onClick={() => setSidebar(true)}
         >
           <X size={28} color="#fd0333" />
@@ -265,7 +265,7 @@ const Sidebar = () => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setCurrentNav(link)}
-                    className={`flex justify-between items-center gap-3 py-1 pr-3 pl-6 rounded text-lg  transition-all duration-300 cursor-pointer hover:tracking-wider ${
+                    className={`flex justify-between items-center gap-3 py-1 pr-3 pl-6 text-lg transition-all duration-300 cursor-pointer hover:tracking-wider ${
                       pathName === link.href
                         ? "text-destructive tracking-wider"
                         : ""

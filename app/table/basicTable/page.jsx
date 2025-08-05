@@ -7,7 +7,10 @@ import {
   Clock,
   XCircle,
   Megaphone,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const BasicTables = () => {
   const users = [
@@ -189,7 +192,17 @@ const BasicTables = () => {
     setOpenMenuIndex(openMenuIndex === index ? null : index);
   };
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="space-y-8 p-3 md:p-5">
+      <div className="flex flex-wrap justify-between items-center gap-4">
+        <h3 className="font-bold text-2xl">Table</h3>
+        <div className="flex items-center gap-2">
+          <Link href={"/"} className="text-xl">
+            Home
+          </Link>
+          <ChevronRight size={18} />
+          <h3 className="text-primary text-xl">Table</h3>
+        </div>
+      </div>
       {/* Table 1 */}
       <section>
         <h2 className="mb-4 font-semibold text-foreground text-xl">
@@ -319,7 +332,7 @@ const BasicTables = () => {
         </div>
         {/* Table 3 */}
         <div className="w-full overflow-y-auto">
-          <table className="bg-card border min-w-fulll text-foreground text-sm">
+          <table className="bg-card border min-w-full text-foreground text-sm">
             <thead className="bg-muted/40 text-muted-foreground">
               <tr>
                 <th className="px-3 py-2">Brand</th>

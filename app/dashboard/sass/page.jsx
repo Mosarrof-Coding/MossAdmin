@@ -14,7 +14,15 @@ import {
   Legend,
 } from "recharts";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, DollarSign, Clock, Inbox } from "lucide-react";
+import {
+  Calendar,
+  User,
+  DollarSign,
+  Clock,
+  Inbox,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   {
@@ -102,7 +110,20 @@ const recentActivity = [
 const SassPage = () => {
   return (
     <div className="space-y-4 p-3 md:p-5">
-      <h1 className="font-medium text-xl">Sass </h1>
+      {/* Page Header */}
+      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+        <div>
+          <h3 className="font-bold text-2xl">Sass</h3>
+        </div>
+        <div className="flex items-center gap-2">
+          <Link href={"/"} className="text-xl">
+            Home
+          </Link>
+          <ChevronRight size={18} />
+          <h3 className="text-primary text-xl">Sass</h3>
+        </div>
+      </div>
+
       {/* Statistics */}
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, i) => (

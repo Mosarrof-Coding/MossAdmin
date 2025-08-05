@@ -50,7 +50,7 @@
   --background: hsla(228, 100%, 99%, 0.774);
   --foreground: hsl(240, 10%, 20%);
 
-  --card: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 96%);
   --card-foreground: hsl(240, 10%, 20%);
 
   --popover: hsl(0, 0%, 100%);
@@ -103,7 +103,7 @@
   --background: hsl(0, 0%, 20%);
   --foreground: hsla(0, 0%, 98%, 0.799);
 
-  --card: hsl(240, 10%, 15%);
+  --card: hsl(240, 19%, 16%);
   --card-foreground: hsl(0, 0%, 98%);
 
   --popover: hsl(240, 10%, 15%);
@@ -134,7 +134,7 @@
   --chart-4: hsl(40, 90%, 70%);
   --chart-5: hsl(340, 80%, 70%);
 
-  --sidebar: hsl(240, 10%, 15%);
+  --sidebar: hsl(240, 40%, 8%);
   --sidebar-foreground: hsl(0, 0%, 98%);
   --sidebar-primary: hsl(220, 60%, 60%);
   --sidebar-primary-foreground: hsl(240, 10%, 15%);

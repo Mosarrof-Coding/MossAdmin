@@ -14,7 +14,8 @@ import {
   isSameDay,
   parse,
 } from "date-fns";
-import { MoveLeft, MoveRight } from "lucide-react";
+import { ChevronRight, MoveLeft, MoveRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -75,13 +76,13 @@ export default function Calendar() {
         days.push(
           <div
             key={day}
-            className={`p-2 border rounded-lg h-24 cursor-pointer relative overflow-hidden
+            className={`p-2 border rounded-lg h-14 md:h-24 cursor-pointer relative overflow-hidden
               ${
                 !isSameMonth(day, monthStart)
                   ? "bg-muted text-muted-foreground"
                   : "bg-card text-foreground"
               }
-              ${isSameDay(day, new Date()) && "border-blue-500 border-2"}
+              ${isSameDay(day, new Date()) && "border-border border-2"}
             `}
             onClick={() => {
               setSelectedDate(cloneDay);
@@ -125,6 +126,20 @@ export default function Calendar() {
 
   return (
     <div className="mx-auto p-4 w-full">
+      {/* Page Header */}
+      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+        <div>
+          <h3 className="font-bold text-2xl">Calender</h3>
+        </div>
+        <div className="flex items-center gap-2">
+          <Link href={"/"} className="text-xl">
+            Home
+          </Link>
+          <ChevronRight size={18} />
+          <h3 className="text-primary text-xl">Calender</h3>
+        </div>
+      </div>
+
       <div className="bg-white dark:bg-background shadow p-4 rounded-xl">
         {renderHeader()}
         {renderDays()}

@@ -19,7 +19,14 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
-import { ArrowUpRight, ArrowDownRight, Calendar, Filter } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowDownRight,
+  Calendar,
+  Filter,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
 
 const pieColors = ["#4ade80", "#facc15", "#60a5fa", "#f87171"];
 
@@ -92,7 +99,6 @@ const statusColors = {
 
 const CRMPage = () => {
   const [filter, setFilter] = useState("All");
-
   // Filter recent orders by category
   const filteredOrders =
     filter === "All"
@@ -101,15 +107,19 @@ const CRMPage = () => {
 
   return (
     <div className="space-y-8 p-3 md:p-5">
-      {/* Header */}
-      <div className="flex justify-between items-center">
+      {/* Page Header */}
+      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
         <div>
-          <h1 className="font-medium text-xl">CRM </h1>
-          <p className="text-muted-foreground">
-            Track your campaigns, engagement, and conversions.
-          </p>{" "}
+          <h3 className="font-bold text-2xl">CRM</h3>
+          <Badge variant="outline">Updated:{new Date().toLocaleString()}</Badge>
         </div>
-        <Badge variant="outline">Updated: July 2025</Badge>
+        <div className="flex items-center gap-2">
+          <Link href={"/"} className="text-xl">
+            Home
+          </Link>
+          <ChevronRight size={18} />
+          <h3 className="text-primary text-xl">Crm</h3>
+        </div>
       </div>
 
       {/* Statistics */}
