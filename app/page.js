@@ -100,23 +100,21 @@ const scatterData = [
 ];
 
 const Home = () => {
-  const [date, setDate] = useState(new Date());
-
   return (
-    <div className="p-6 space-y-12">
+    <div className="p-3 md:p-5 space-y-12">
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-card p-4 rounded-xl shadow flex flex-col items-center gap-4">
+        <div className="bg-card p-4 rounded-xl shadow flex flex-col items-center gap-4 border">
           <BadgeDollarSign size={28} className="inline-block" />
           <p className="text-muted-foreground">Total Revenue</p>
           <h2 className="text-2xl font-bold">$9,758</h2>
         </div>
-        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4 items-center">
+        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4 items-center border">
           <CalendarArrowDown size={28} className="inline-block" />
           <p className="text-muted-foreground">Orders</p>
           <h2 className="text-2xl font-bold">1,245</h2>
         </div>
-        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4 items-center">
+        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4 items-center border">
           <Users size={28} className="inline-block" />
           <p className="text-muted-foreground">Customers</p>
           <h2 className="text-2xl font-bold">372</h2>

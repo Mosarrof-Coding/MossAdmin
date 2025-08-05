@@ -41,7 +41,7 @@ const statusColors = {
 };
 
 const RecentOrders = () => (
-  <div className="bg-card shadow p-4 rounded-lg overflow-x-auto">
+  <div className="bg-card shadow p-3 md:p-5 rounded-lg overflow-x-auto">
     <h2 className="mb-4 font-semibold text-lg">Recent Orders</h2>
     <table className="w-full text-left border-collapse">
       <thead>

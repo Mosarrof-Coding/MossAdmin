@@ -189,7 +189,7 @@ const BasicTables = () => {
     setOpenMenuIndex(openMenuIndex === index ? null : index);
   };
   return (
-    <div className="space-y-16 p-4">
+    <div className="space-y-4 p-3 md:p-5">
       {/* Table 1 */}
       <section>
         <h2 className="mb-4 font-semibold text-foreground text-xl">
@@ -431,7 +431,7 @@ const BasicTables = () => {
                     className="hover:bg-muted/10 transition-colors"
                   >
                     {/* Products column */}
-                    <td className="p-3">
+                    <td className="p-1">
                       <div className="flex items-center gap-3">
                         <div className="flex justify-center items-center bg-muted rounded-full w-10 h-10 font-semibold text-muted-foreground text-xs">
                           U

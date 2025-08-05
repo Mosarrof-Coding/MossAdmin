@@ -111,7 +111,7 @@ const StocksPage = () => {
       : transactions.filter((txn) => txn.type === filter);
 
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>

@@ -113,7 +113,7 @@ const Carousel = () => {
   const defaultNext = () => setDefaultIndex((i) => (i < total - 1 ? i + 1 : i));
 
   return (
-    <div className="mx-auto p-6">
+    <div className="mx-auto p-3 md:p-5">
       <h2 className="mb-12 font-bold text-3xl text-center">
         4 Carousel Styles
       </h2>

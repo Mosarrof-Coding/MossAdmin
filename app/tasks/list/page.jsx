@@ -42,7 +42,7 @@ const tasks = [
 
 const ListPage = () => {
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="font-semibold text-foreground text-2xl">Task List</h2>

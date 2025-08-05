@@ -85,7 +85,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`h-screen w-full ${
+      className={`h-screen w-full z-50 ${
         sidebar ? "hidden lg:flex" : "lg:hidden flex"
       }
     flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground absolute left-0 top-0 lg:sticky z-10`}

@@ -21,7 +21,7 @@ const FormElements = () => {
   const [date, setDate] = useState();
 
   return (
-    <div className="p-6">
+    <div className="p-3 md:p-5">
       <h1 className="mb-6 font-semibold text-xl">Forms Elements</h1>
       <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
         {/* Default Input */}

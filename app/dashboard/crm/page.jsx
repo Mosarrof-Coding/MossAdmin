@@ -100,7 +100,7 @@ const CRMPage = () => {
       : crmData.recentOrders.filter((order) => order.category === filter);
 
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-8 p-3 md:p-5">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>

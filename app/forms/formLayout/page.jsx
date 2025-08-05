@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const FormLayout = () => {
   return (
-    <div className="space-y-6 mx-auto p-6 w-full">
+    <div className="space-y-6 mx-auto p-3 md:p-5 w-full">
       <h1 className="mb-6 font-semibold text-xl">Forms Layout</h1>
       <Card>
         <CardHeader>

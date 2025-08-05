@@ -163,7 +163,7 @@ const Pagination = () => {
   const totalPages = 10;
 
   return (
-    <main className="space-y-12 mx-auto p-6 max-w-4xl">
+    <main className="space-y-4 mx-auto p-3 md:p-5 max-w-4xl">
       <div className="space-y-2">
         <h1 className="font-bold text-3xl tracking-tight">Pagination</h1>
         <nav className="space-x-2 text-indigo-600 text-sm">

@@ -15,7 +15,7 @@ import {
 
 const ProfilePage = () => {
   return (
-    <div className="space-y-10 mx-auto px-6 py-10 w-full">
+    <div className="space-y-10 mx-auto p-3 md:p-5 w-full">
       {/* Header */}
       <div className="flex items-center gap-4">
         <img

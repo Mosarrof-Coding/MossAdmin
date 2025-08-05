@@ -28,7 +28,7 @@ export default function MetricsOverview() {
   return (
     <div className="gap-4 grid">
       {data.map((item, idx) => (
-        <Card key={idx} className="bg-card shadow-sm border-none rounded-2xl">
+        <Card key={idx} className="bg-card shadow-sm border rounded-2xl">
           <CardHeader className="flex flex-row justify-between items-center space-y-0 pb-2">
             <CardTitle className="font-medium text-sm">{item.title}</CardTitle>
             {item.trend === "up" ? (

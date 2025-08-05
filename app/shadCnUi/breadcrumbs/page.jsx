@@ -22,7 +22,7 @@ const Breadcrumbs = () => {
   ];
 
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       <h2 className="font-semibold text-2xl">Breadcrumbs</h2>
 
       {/* Default Breadcrumb */}

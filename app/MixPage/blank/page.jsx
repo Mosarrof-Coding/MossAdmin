@@ -6,7 +6,7 @@ import { Plus } from "lucide-react";
 
 const BlankPage = () => {
   return (
-    <div className="p-6">
+    <div className="p-3 md:p-5">
       <Card className="bg-muted/40 border-2 border-muted-foreground/20 border-dashed rounded-2xl">
         <CardHeader className="space-y-2 text-center">
           <CardTitle className="font-semibold text-primary text-xl">

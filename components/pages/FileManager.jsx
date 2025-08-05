@@ -123,7 +123,7 @@ const recentFiles = [
 
 export default function FileManager() {
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       {/* Header */}
       <div className="flex flex-wrap justify-between items-center gap-12">
         <h2 className="w-sm font-bold text-2xl truncate">All Media</h2>

@@ -125,7 +125,7 @@ const Dashboard = () => {
   const [checked, setChecked] = useState(false);
 
   return (
-    <main className="space-y-10 mx-auto p-6 max-w-7xl">
+    <main className="space-y-10 mx-auto p-3 md:p-5 max-w-7xl">
       <h1 className="mb-6 font-bold text-3xl">E-Commerce Dashboard</h1>
 
       {/* KPI summary cards */}

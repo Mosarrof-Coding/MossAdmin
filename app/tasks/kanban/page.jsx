@@ -41,7 +41,7 @@ const tasks = {
 
 const Kanban = () => {
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="font-semibold text-xl tracking-tight">Kanban Board</h2>

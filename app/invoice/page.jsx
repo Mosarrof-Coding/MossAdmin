@@ -29,7 +29,7 @@ export default function InvoicePage() {
   const selected = invoices[0]; // Default selection
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       <div className="flex flex-wrap justify-between gap-8">
         <h2 className="font-semibold text-2xl">Invoices</h2>
         <p className="text-muted-foreground xl">

@@ -31,7 +31,7 @@ const campaignData = [
 
 const MarketingPage = () => {
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-4 p-3 md:p-5">
       <div>
         <h1 className="font-semibold text-xl tracking-tight">Marketing</h1>
         <p className="text-muted-foreground">

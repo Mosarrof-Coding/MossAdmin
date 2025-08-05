@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const AlertsPage = () => {
   return (
-    <div className="space-y-6 mx-auto p-6 w-full">
+    <div className="space-y-4 mx-auto p-3 md:p-5 w-full">
       <div className="space-y-1">
         <h1 className="font-bold text-3xl tracking-tight">Alerts</h1>
         <p className="text-muted-foreground">

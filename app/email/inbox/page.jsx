@@ -125,7 +125,7 @@ const EmailInboxPage = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-between items-center py-6 text-sm">
+      <div className="flex flex-wrap justify-between items-center p-3 md:p-5 text-sm">
         <h3 className="font-medium text-2xl">Inbox</h3>
         <div className="flex items-center gap-1 text-lg">
           <Link href="/" className="">

@@ -42,7 +42,7 @@ const COLORS = ["hsl(145, 60%, 45%)", "hsl(220, 10%, 80%)"];
 
 const Ecommerce = () => {
   return (
-    <div className="space-y-4 p-4">
+    <div className="space-y-4 p-3 md:p-5">
       {/* Page Header */}
       <div>
         <h1 className="font-semibold text-foreground text-2xl">

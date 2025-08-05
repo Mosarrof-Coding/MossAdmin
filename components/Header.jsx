@@ -57,12 +57,12 @@ const Header = () => {
   const [abs, setAbs] = useState(null);
 
   return (
-    <header className="relative flex justify-between items-center gap-4 bg-sidebar/50 px-4 lg:px-6 border-b border-border text-foreground transition-colors">
+    <header className="top-0 z-10 relative md:sticky flex justify-between items-center gap-4 bg-sidebar px-4 lg:px-6 border-b border-border text-foreground transition-colors">
       {/* Left: Menu + Search */}
       <div className="flex items-center gap-4">
         <button
           aria-label="Toggle menu"
-          className="bg-muted hover:bg-muted/80 my-2 p-2 rounded transition-colors cursor-pointer"
+          className="bg-muted hover:bg-muted/80 my-2 md:my-4 p-2 rounded transition-colors cursor-pointer"
           onClick={sidehandler}
         >
           <Menu className="w-5 h-5" />
@@ -74,7 +74,7 @@ const Header = () => {
           </span>
 
           <div
-            className={`px-4 py-4 md:py-0 absolute md:static z-[5] ${
+            className={`px-4 py-4 md:py-0 absolute md:static z-[15] ${
               abs
                 ? "left-0 top-full w-full bg-white dark:bg-gray-800 shadow-lg grid place-items-center "
                 : "md:block hidden w-full md:w-sm"
@@ -172,7 +172,7 @@ const Header = () => {
               <img
                 src="https://i.pravatar.cc/40?u=user"
                 alt="User profile"
-                className="ring-border rounded-full ring-2 w-7 md:w-8 h-7 sm:h-8"
+                className="ring-border rounded-full ring-2 w-7 md:w-8 h-7 md:h-8"
               />
               <h4 className="hidden lg:block font-medium text-sm">Mosharof</h4>
             </div>
