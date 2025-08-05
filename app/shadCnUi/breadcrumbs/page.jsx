@@ -48,7 +48,7 @@ const Breadcrumbs = () => {
       </div>
 
       {/* Colored Variants */}
-      <div className="gap-4 grid grid-cols-2 sm:grid-cols-3">
+      <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {Object.entries(themeClasses).map(([name, style]) => (
           <div key={name} className="flex items-center gap-2">
             <Home className="w-4 h-4" />
