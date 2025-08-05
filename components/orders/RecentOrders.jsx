@@ -46,16 +46,16 @@ const RecentOrders = () => (
     <table className="w-full text-left border-collapse">
       <thead>
         <tr className="border-b border-border">
-          <th className="px-3 py-2 font-medium text-muted-foreground text-sm">
+          <th className="px-3 py-2 font-medium text-muted-foreground text-sm truncate">
             Product
           </th>
-          <th className="px-3 py-2 font-medium text-muted-foreground text-sm">
+          <th className="px-3 py-2 font-medium text-muted-foreground text-sm truncate">
             Category
           </th>
-          <th className="px-3 py-2 font-medium text-muted-foreground text-sm">
+          <th className="px-3 py-2 font-medium text-muted-foreground text-sm truncate">
             Price
           </th>
-          <th className="px-3 py-2 font-medium text-muted-foreground text-sm">
+          <th className="px-3 py-2 font-medium text-muted-foreground text-sm truncate">
             Status
           </th>
         </tr>
@@ -66,12 +66,12 @@ const RecentOrders = () => (
             key={id}
             className="hover:bg-muted/30 border-b border-border transition-colors"
           >
-            <td className="px-3 py-2">{product}</td>
-            <td className="px-3 py-2">{category}</td>
-            <td className="px-3 py-2">${price.toFixed(2)}</td>
-            <td className="px-3 py-2">
+            <td className="px-3 py-2 truncate">{product}</td>
+            <td className="px-3 py-2 truncate">{category}</td>
+            <td className="px-3 py-2 truncate">${price.toFixed(2)}</td>
+            <td className="px-3 py-2 truncate">
               <span
-                className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${statusColors[status]}`}
+                className={`inline-block px-3 py-1 rounded-full text-xs font-semibold truncate ${statusColors[status]}`}
               >
                 {status}
               </span>

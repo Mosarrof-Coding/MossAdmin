@@ -103,20 +103,20 @@ const Home = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <main className="p-6 space-y-12">
+    <div className="p-6 space-y-12">
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4">
+        <div className="bg-card p-4 rounded-xl shadow flex flex-col items-center gap-4">
           <BadgeDollarSign size={28} className="inline-block" />
           <p className="text-muted-foreground">Total Revenue</p>
           <h2 className="text-2xl font-bold">$9,758</h2>
         </div>
-        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4">
+        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4 items-center">
           <CalendarArrowDown size={28} className="inline-block" />
           <p className="text-muted-foreground">Orders</p>
           <h2 className="text-2xl font-bold">1,245</h2>
         </div>
-        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4">
+        <div className="bg-card p-4 rounded-xl shadow flex flex-col gap-4 items-center">
           <Users size={28} className="inline-block" />
           <p className="text-muted-foreground">Customers</p>
           <h2 className="text-2xl font-bold">372</h2>
@@ -449,13 +449,14 @@ const Home = () => {
           </ChartWrapper>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
 const ChartWrapper = ({ title, children }) => (
-  <section className="bg-card p-4 rounded-xl shadow w-full h-[300px]">
-    <h3 className="text-lg font-semibold mb-2">{title}</h3>
+  <section className="bg-card p-2 md:p-4 rounded-xl shadow w-full h-[300px]">
+    {title && <h3 className="text-lg font-semibold mb-2">{title}</h3>}
+
     <ResponsiveContainer width="100%" height="100%">
       {children}
     </ResponsiveContainer>

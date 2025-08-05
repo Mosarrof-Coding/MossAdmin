@@ -36,13 +36,10 @@ export default function RootLayout({ children }) {
               <Sidebar />
 
               {/* Main content wrapper */}
-              <div className="flex flex-col flex-1 ">
+              <div className="flex flex-col w-full">
                 <Header />
-
                 {/* Scrollable content area */}
-                <div className="flex-1 overflow-y-auto p-0">
-                  <div className="h-[92vh]">{children}</div>
-                </div>
+                <div className="overflow-y-auto">{children}</div>
               </div>
             </div>
           </ThemeProvider>

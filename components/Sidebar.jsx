@@ -85,11 +85,13 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`h-screen ${sidebar ? "hidden lg:flex " : "lg:hidden flex"}
-    flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground absolute left-0 top-0 lg:static z-10`}
+      className={`h-screen w-full ${
+        sidebar ? "hidden lg:flex" : "lg:hidden flex"
+      }
+    flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground absolute left-0 top-0 lg:sticky z-10`}
     >
       {/* Top Logo/Header */}
-      <header className="flex items-center gap-3 px-4 h-20">
+      <header className="flex items-center gap-3 px-4 py-1 md:py-2">
         <Link
           href={"/"}
           className="flex items-center gap-3"
@@ -100,11 +102,13 @@ const Sidebar = () => {
           <div className="text-3xl lg:text-4xl">💢</div>
           <div>
             <h3 className="font-bold text-2xl lg:text-3xl">MossAdmin</h3>
-            <p className="text-chart-3 text-xs">Next.js E-commerce Dashboard</p>
+            <p className="text-[10px] text-chart-3 md:text-xs leading-1 md:leading-normal">
+              Next.js E-commerce Dashboard
+            </p>
           </div>
         </Link>
         <button
-          className="lg:hidden bg-muted hover:bg-muted/80 ms-auto p-1 rounded-lg transition-colors cursor-pointer"
+          className="lg:hidden bg-muted hover:bg-muted/80 ms-auto p-0.5 md:p-1 rounded-lg transition-colors cursor-pointer"
           onClick={() => setSidebar(true)}
         >
           <X size={28} color="#fd0333" />
@@ -112,7 +116,7 @@ const Sidebar = () => {
       </header>
 
       {/* Scrollable Nav Content */}
-      <nav className="flex-1 px-4 py-4 overflow-y-auto">
+      <nav className="px-4 py-4 overflow-y-auto">
         <Accordion
           type="single"
           // defaultValue="item-1"

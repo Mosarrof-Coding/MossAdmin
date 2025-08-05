@@ -189,54 +189,59 @@ const BasicTables = () => {
     setOpenMenuIndex(openMenuIndex === index ? null : index);
   };
   return (
-    <main className="space-y-16 p-6">
+    <div className="space-y-16 p-4">
       {/* Table 1 */}
       <section>
         <h2 className="mb-4 font-semibold text-foreground text-xl">
           Basic Table 1
         </h2>
-        <table className="bg-card border w-full text-foreground text-sm text-left">
-          <thead className="bg-muted/40">
-            <tr className="text-muted-foreground">
-              <th className="px-3 py-2">User</th>
-              <th className="px-3 py-2">Project Name</th>
-              <th className="px-3 py-2">Team</th>
-              <th className="px-3 py-2">Status</th>
-              <th className="px-3 py-2">Budget</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((item, index) => (
-              <tr key={index} className="hover:bg-muted/10 border-b transition">
-                <td className="px-3 py-2">
-                  <div className="flex items-center gap-2">
-                    <div className="flex justify-center items-center bg-muted rounded-full w-8 h-8 font-bold text-foreground text-xs">
-                      {getInitials(item.user)}
-                    </div>
-                    <div>
-                      <div className="font-medium">{item.user}</div>
-                      <div className="text-muted-foreground text-xs">
-                        {item.role}
+        <div className="w-full overflow-y-auto">
+          <table className="bg-card border min-w-full text-foreground text-sm text-left">
+            <thead className="bg-muted/40">
+              <tr className="text-muted-foreground">
+                <th className="px-3 py-2 truncate">User</th>
+                <th className="px-3 py-2 truncate">Project Name</th>
+                <th className="px-3 py-2 truncate">Team</th>
+                <th className="px-3 py-2 truncate">Status</th>
+                <th className="px-3 py-2 truncate">Budget</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((item, index) => (
+                <tr
+                  key={index}
+                  className="hover:bg-muted/10 border-b transition"
+                >
+                  <td className="px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex justify-center items-center bg-muted rounded-full w-8 h-8 font-bold text-foreground text-xs truncate">
+                        {getInitials(item.user)}
+                      </div>
+                      <div>
+                        <div className="font-medium truncate">{item.user}</div>
+                        <div className="text-muted-foreground text-xs truncate">
+                          {item.role}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td className="px-3 py-2">{item.project}</td>
-                <td className="px-3 py-2">
-                  {item.team.map((n) => `Team member ${n}`).join(", ")}
-                </td>
-                <td
-                  className={`py-2 px-3 font-medium ${
-                    statusColor[item.status]
-                  }`}
-                >
-                  {item.status}
-                </td>
-                <td className="px-3 py-2">{item.budget}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  </td>
+                  <td className="px-3 py-2 truncate">{item.project}</td>
+                  <td className="px-3 py-2 truncate">
+                    {item.team.map((n) => `Team member ${n}`).join(", ")}
+                  </td>
+                  <td
+                    className={`py-2 px-3 font-medium truncate ${
+                      statusColor[item.status]
+                    }`}
+                  >
+                    {item.status}
+                  </td>
+                  <td className="px-3 py-2 truncate">{item.budget}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {/* Table 2 */}
@@ -244,64 +249,67 @@ const BasicTables = () => {
         <h2 className="mb-4 font-semibold text-foreground text-xl">
           Basic Table 2 - Recent Orders
         </h2>
-        <table className="bg-card border w-full text-foreground text-sm">
-          <thead className="bg-muted/40 text-muted-foreground">
-            <tr>
-              <th className="px-3 py-2">Deal ID</th>
-              <th className="px-3 py-2">Customer</th>
-              <th className="px-3 py-2">Product/Service</th>
-              <th className="px-3 py-2">Deal Value</th>
-              <th className="px-3 py-2">Close Date</th>
-              <th className="px-3 py-2">Status</th>
-              <th className="px-3 py-2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.ids.map((id, i) => {
-              const { name, email } = orders.customers[i];
-              return (
-                <tr key={id} className="hover:bg-muted/10 border-b transition">
-                  <td className="px-3 py-2">{id}</td>
-                  <td className="px-3 py-2">
-                    <div className="flex items-center gap-2">
-                      <div className="flex justify-center items-center bg-primary rounded-full w-8 h-8 font-semibold text-white text-xs">
-                        {getInitials(name)}
-                      </div>
-                      <div>
-                        <div className="font-medium">{name}</div>
-                        <div className="text-muted-foreground text-xs">
-                          {email}
+        <div className="w-full overflow-y-auto">
+          <table className="bg-card border min-w-full text-foreground text-sm">
+            <thead className="bg-muted/40 text-muted-foreground">
+              <tr>
+                <th className="px-3 py-2 truncate">Deal ID</th>
+                <th className="px-3 py-2 truncate">Customer</th>
+                <th className="px-3 py-2 truncate">Product/Service</th>
+                <th className="px-3 py-2 truncate">Deal Value</th>
+                <th className="px-3 py-2 truncate">Close Date</th>
+                <th className="px-3 py-2 truncate">Status</th>
+                <th className="px-3 py-2 truncate">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.ids.map((id, i) => {
+                const { name, email } = orders.customers[i];
+                return (
+                  <tr
+                    key={id}
+                    className="hover:bg-muted/10 border-b transition"
+                  >
+                    <td className="px-3 py-2">{id}</td>
+                    <td className="px-3 py-2">
+                      <div className="flex items-center gap-2">
+                        <div className="flex justify-center items-center bg-primary rounded-full w-8 h-8 font-semibold text-white text-xs truncate">
+                          {getInitials(name)}
+                        </div>
+                        <div>
+                          <div className="font-medium truncate">{name}</div>
+                          <div className="text-muted-foreground text-xs truncate">
+                            {email}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-3 py-2">{orders.products[i]}</td>
-                  <td className="px-3 py-2">{orders.values[i]}</td>
-                  <td className="px-3 py-2">{orders.dates[i]}</td>
-                  <td
-                    className={`py-2 px-3 font-medium ${
-                      statusColor[orders.statuses[i]]
-                    }`}
-                  >
-                    {orders.statuses[i]}
-                  </td>
-                  <td className="px-3 py-2">
-                    <MoreVertical className="w-4 h-4 text-muted-foreground" />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    </td>
+                    <td className="px-3 py-2 truncate">{orders.products[i]}</td>
+                    <td className="px-3 py-2 truncate">{orders.values[i]}</td>
+                    <td className="px-3 py-2 truncate">{orders.dates[i]}</td>
+                    <td
+                      className={`py-2 px-3 font-medium truncate ${
+                        statusColor[orders.statuses[i]]
+                      }`}
+                    >
+                      {orders.statuses[i]}
+                    </td>
+                    <td className="px-3 py-2">
+                      <MoreVertical className="w-4 h-4 text-muted-foreground truncate" />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
       {/* transations */}
       <section className="space-y-6">
-        <div className="flex justify-between items-center">
-          <div>
-            <h2 className="font-semibold text-foreground text-xl">
-              Basic Table 3 - Latest Transactions
-            </h2>
-          </div>
+        <div className="flex flex-wrap justify-between items-center gap-4">
+          <h2 className="font-semibold text-foreground text-xl">
+            Basic Table 3 - Latest Transactions
+          </h2>
 
           <input
             type="text"
@@ -309,46 +317,52 @@ const BasicTables = () => {
             className="bg-background px-3 py-1.5 border rounded-md w-64 text-foreground text-sm"
           />
         </div>
-
-        <table className="bg-card border w-full text-foreground text-sm">
-          <thead className="bg-muted/40 text-muted-foreground">
-            <tr>
-              <th className="px-3 py-2">Brand</th>
-              <th className="px-3 py-2">Name</th>
-              <th className="px-3 py-2">Date</th>
-              <th className="px-3 py-2">Price</th>
-              <th className="px-3 py-2">Category</th>
-              <th className="px-3 py-2">Status</th>
-              <th className="px-3 py-2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions.map((tx, index) => (
-              <tr key={index} className="hover:bg-muted/10 border-b transition">
-                <td className="px-3 py-2">
-                  <div className="flex justify-center items-center bg-muted rounded-full w-8 h-8 font-bold text-foreground text-xs">
-                    B
-                  </div>
-                </td>
-                <td className="px-3 py-2">{tx.name}</td>
-                <td className="px-3 py-2">{tx.date}</td>
-                <td className="px-3 py-2">{tx.price}</td>
-                <td className="px-3 py-2">{tx.category}</td>
-                <td
-                  className={`py-2 px-3 font-medium ${statusColor[tx.status]}`}
-                >
-                  {tx.status}
-                </td>
-                <td className="px-3 py-2">
-                  <MoreVertical className="w-4 h-4 text-muted-foreground" />
-                </td>
+        {/* Table 3 */}
+        <div className="w-full overflow-y-auto">
+          <table className="bg-card border min-w-fulll text-foreground text-sm">
+            <thead className="bg-muted/40 text-muted-foreground">
+              <tr>
+                <th className="px-3 py-2">Brand</th>
+                <th className="px-3 py-2">Name</th>
+                <th className="px-3 py-2">Date</th>
+                <th className="px-3 py-2">Price</th>
+                <th className="px-3 py-2">Category</th>
+                <th className="px-3 py-2">Status</th>
+                <th className="px-3 py-2">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-
+            </thead>
+            <tbody>
+              {transactions.map((tx, index) => (
+                <tr
+                  key={index}
+                  className="hover:bg-muted/10 border-b transition"
+                >
+                  <td className="px-3 py-2">
+                    <div className="flex justify-center items-center bg-muted rounded-full w-8 h-8 font-bold text-foreground text-xs">
+                      B
+                    </div>
+                  </td>
+                  <td className="px-3 py-2 truncate">{tx.name}</td>
+                  <td className="px-3 py-2 truncate">{tx.date}</td>
+                  <td className="px-3 py-2 truncate">{tx.price}</td>
+                  <td className="px-3 py-2 truncate">{tx.category}</td>
+                  <td
+                    className={`py-2 px-3 font-medium ${
+                      statusColor[tx.status]
+                    }`}
+                  >
+                    {tx.status}
+                  </td>
+                  <td className="px-3 py-2">
+                    <MoreVertical className="w-4 h-4 text-muted-foreground" />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         {/* Pagination */}
-        <div className="flex justify-end items-center gap-2 pt-4">
+        <div className="flex justify-center md:justify-end items-center gap-2 pt-4">
           <button
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             disabled={currentPage === 1}
@@ -379,21 +393,21 @@ const BasicTables = () => {
         </div>
       </section>
       <section>
-        <div className="shadow-sm p-6 rounded-2xl">
-          <div className="flex justify-between items-center mb-4">
+        <div className="shadow-sm rounded-2xl">
+          <div className="flex justify-between items-center gap-5 mb-4">
             <h2 className="font-semibold text-xl">
               Basic Table 4 - Featured Campaigns
             </h2>
             <div className="relative">
               <button onClick={() => toggleMenu("global")}>
-                <MoreVertical className="w-5 h-5 text-gray-500" />
+                <MoreVertical className="w-5 h-5" />
               </button>
               {openMenuIndex === "global" && (
-                <div className="right-0 z-10 absolute bg-white shadow mt-2 border rounded w-32">
-                  <button className="block hover:bg-gray-100 px-4 py-2 w-full text-left">
+                <div className="right-0 z-10 absolute flex flex-col gap-2 bg-card shadow mt-2 p-3 border rounded">
+                  <button className="block w-full text-left truncate">
                     View More
                   </button>
-                  <button className="block hover:bg-gray-100 px-4 py-2 w-full text-red-500 text-left">
+                  <button className="block w-full text-left truncate">
                     Delete
                   </button>
                 </div>
@@ -401,13 +415,13 @@ const BasicTables = () => {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="w-full overflow-y-auto">
             <table className="divide-y divide-muted/50 min-w-full text-sm">
               <thead className="bg-muted/20 text-muted-foreground">
                 <tr>
-                  <th className="px-4 py-3 font-medium text-left">Products</th>
-                  <th className="px-4 py-3 font-medium text-left">Campaign</th>
-                  <th className="px-4 py-3 font-medium text-left">Status</th>
+                  <th className="py-3 font-medium text-left">Products</th>
+                  <th className="py-3 font-medium text-left">Campaign</th>
+                  <th className="py-3 font-medium text-left">Status</th>
                 </tr>
               </thead>
               <tbody className="bg-background divide-y divide-muted/50">
@@ -417,26 +431,26 @@ const BasicTables = () => {
                     className="hover:bg-muted/10 transition-colors"
                   >
                     {/* Products column */}
-                    <td className="px-4 py-3">
+                    <td className="p-3">
                       <div className="flex items-center gap-3">
                         <div className="flex justify-center items-center bg-muted rounded-full w-10 h-10 font-semibold text-muted-foreground text-xs">
                           U
                         </div>
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-foreground truncate">
                           {item.name}
                         </span>
                       </div>
                     </td>
 
                     {/* Campaign column */}
-                    <td className="px-4 py-3">
+                    <td className="p-3">
                       <div className="flex items-start gap-2">
                         <Megaphone className="mt-1 w-4 h-4 text-primary" />
                         <div>
-                          <div className="font-medium text-foreground">
+                          <div className="font-medium text-foreground truncate">
                             {item.campaign}
                           </div>
-                          <div className="text-muted-foreground text-xs">
+                          <div className="text-muted-foreground text-xs truncate">
                             {item.type}
                           </div>
                         </div>
@@ -444,9 +458,9 @@ const BasicTables = () => {
                     </td>
 
                     {/* Status column */}
-                    <td className="px-4 py-3">
+                    <td className="p-3">
                       <span
-                        className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
+                        className={`inline-flex  items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
                           item.status
                         )}`}
                       >
@@ -469,7 +483,7 @@ const BasicTables = () => {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

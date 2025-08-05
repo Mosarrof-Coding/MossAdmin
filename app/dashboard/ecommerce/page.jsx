@@ -58,7 +58,7 @@ const Ecommerce = () => {
       {/* KPI Cards */}
       <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
-          <Card>
+          <Card className="">
             <CardHeader>
               <ShieldCheck className="mb-6 size-20" />
               <CardTitle className="text-muted-foreground text-sm">
@@ -72,7 +72,7 @@ const Ecommerce = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="">
             <CardHeader>
               <CalendarArrowDown className="mb-6 size-20" />
               <CardTitle className="text-muted-foreground text-sm">
@@ -86,7 +86,7 @@ const Ecommerce = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="">
             <CardHeader>
               <UsersRound className="mb-6 size-20" />
               <CardTitle className="text-muted-foreground text-sm">
@@ -100,7 +100,7 @@ const Ecommerce = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="">
             <CardHeader>
               <TicketSlash className="mb-6 size-20" />
               <CardTitle className="text-muted-foreground text-sm">
@@ -125,7 +125,7 @@ const Ecommerce = () => {
             Monthly Revenue
           </CardTitle>
         </CardHeader>
-        <CardContent className="h-80">
+        <CardContent className="h-70 md:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={monthlySales}>
               <defs>
