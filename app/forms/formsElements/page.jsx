@@ -15,15 +15,29 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const FormElements = () => {
   const [date, setDate] = useState();
 
   return (
-    <div className="p-3 md:p-5">
-      <h1 className="mb-6 font-semibold text-xl">Forms Elements</h1>
-      <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
+    <div className="px-4 py-6 md:py-12 w-full">
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <h2 className="font-semibold text-primary text-2xl md:text-3xl">
+          Forms
+        </h2>
+        <div className="flex items-center gap-1">
+          <Link href={"/"} className="font-bold text-lg">
+            Home
+          </Link>
+          <ChevronRight className="size-5" />
+          <h4 className="text-primary text-lg">Elements</h4>
+        </div>
+      </div>
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 mt-4 p-2 lg:p-4 border rounded-lg">
         {/* Default Input */}
         <div>
           <Label className="mb-2" htmlFor="default">

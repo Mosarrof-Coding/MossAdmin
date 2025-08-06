@@ -192,24 +192,26 @@ const BasicTables = () => {
     setOpenMenuIndex(openMenuIndex === index ? null : index);
   };
   return (
-    <div className="space-y-8 p-3 md:p-5">
+    <div className="flex flex-col gap-6 md:gap-8 mx-auto px-4 py-6 md:py-12">
       <div className="flex flex-wrap justify-between items-center gap-4">
-        <h3 className="font-bold text-2xl">Table</h3>
+        <h3 className="font-semibold text-primary text-2xl md:text-3xl">
+          Table
+        </h3>
         <div className="flex items-center gap-2">
-          <Link href={"/"} className="text-xl">
+          <Link href={"/"} className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight size={18} />
-          <h3 className="text-primary text-xl">Table</h3>
+          <h3 className="text-primary text-lg">Table</h3>
         </div>
       </div>
       {/* Table 1 */}
       <section>
-        <h2 className="mb-4 font-semibold text-foreground text-xl">
+        <h2 className="mb-2 font-semibold text-foreground text-xl">
           Basic Table 1
         </h2>
         <div className="w-full overflow-y-auto">
-          <table className="bg-card border min-w-full text-foreground text-sm text-left">
+          <table className="bg-card border rounded-lg min-w-full overflow-hidden text-foreground text-sm text-left">
             <thead className="bg-muted/40">
               <tr className="text-muted-foreground">
                 <th className="px-3 py-2 truncate">User</th>
@@ -259,11 +261,11 @@ const BasicTables = () => {
 
       {/* Table 2 */}
       <section>
-        <h2 className="mb-4 font-semibold text-foreground text-xl">
+        <h2 className="mb-2 font-semibold text-foreground text-xl">
           Basic Table 2 - Recent Orders
         </h2>
         <div className="w-full overflow-y-auto">
-          <table className="bg-card border min-w-full text-foreground text-sm">
+          <table className="bg-card border rounded-lg min-w-full overflow-hidden text-foreground text-sm">
             <thead className="bg-muted/40 text-muted-foreground">
               <tr>
                 <th className="px-3 py-2 truncate">Deal ID</th>
@@ -317,9 +319,10 @@ const BasicTables = () => {
           </table>
         </div>
       </section>
+
       {/* transations */}
-      <section className="space-y-6">
-        <div className="flex flex-wrap justify-between items-center gap-4">
+      <section className="">
+        <div className="flex flex-wrap justify-between items-center gap-4 mb-2">
           <h2 className="font-semibold text-foreground text-xl">
             Basic Table 3 - Latest Transactions
           </h2>
@@ -332,7 +335,7 @@ const BasicTables = () => {
         </div>
         {/* Table 3 */}
         <div className="w-full overflow-y-auto">
-          <table className="bg-card border min-w-full text-foreground text-sm">
+          <table className="bg-card border rounded-lg min-w-full overflow-hidden text-foreground text-sm">
             <thead className="bg-muted/40 text-muted-foreground">
               <tr>
                 <th className="px-3 py-2">Brand</th>
@@ -379,7 +382,7 @@ const BasicTables = () => {
           <button
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             disabled={currentPage === 1}
-            className="bg-background disabled:opacity-50 px-3 py-1.5 border rounded text-foreground"
+            className="bg-background disabled:opacity-50 px-2 md:px-3 py-1 md:py-1.5 border rounded text-foreground"
           >
             Previous
           </button>
@@ -387,7 +390,7 @@ const BasicTables = () => {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`px-3 py-1.5 rounded border ${
+              className={`px-2 md:px-3 py-1 md:py-1.5 rounded border ${
                 currentPage === page
                   ? "bg-primary text-white"
                   : "bg-background text-foreground"
@@ -399,14 +402,14 @@ const BasicTables = () => {
           <button
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
-            className="bg-background disabled:opacity-50 px-3 py-1.5 border rounded text-foreground"
+            className="bg-background disabled:opacity-50 px-2 md:px-3 py-1 md:py-1.5 border rounded text-foreground"
           >
             Next
           </button>
         </div>
       </section>
       <section>
-        <div className="shadow-sm rounded-2xl">
+        <div className="">
           <div className="flex justify-between items-center gap-5 mb-4">
             <h2 className="font-semibold text-xl">
               Basic Table 4 - Featured Campaigns
@@ -428,16 +431,16 @@ const BasicTables = () => {
             </div>
           </div>
 
-          <div className="w-full overflow-y-auto">
+          <div className="rounded-lg w-full overflow-y-auto">
             <table className="divide-y divide-muted/50 min-w-full text-sm">
-              <thead className="bg-muted/20 text-muted-foreground">
+              <thead className="bg-muted/20 p-4 text-muted-foreground">
                 <tr>
                   <th className="py-3 font-medium text-left">Products</th>
                   <th className="py-3 font-medium text-left">Campaign</th>
                   <th className="py-3 font-medium text-left">Status</th>
                 </tr>
               </thead>
-              <tbody className="bg-background divide-y divide-muted/50">
+              <tbody className="bg-background p-4 divide-y divide-muted/50">
                 {campaigns.map((item, index) => (
                   <tr
                     key={index}

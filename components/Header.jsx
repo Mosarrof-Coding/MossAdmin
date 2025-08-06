@@ -76,7 +76,7 @@ const Header = () => {
           <div
             className={`px-4 py-4 md:py-0 absolute md:static z-[15] ${
               abs
-                ? "left-0 top-full w-full bg-white dark:bg-gray-800 shadow-lg grid place-items-center "
+                ? "left-0 top-full w-full bg-white dark:bg-[#1b1b1b] shadow-foreground/20 shadow-lg grid place-items-center"
                 : "md:block hidden w-full md:w-sm"
             }`}
           >

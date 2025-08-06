@@ -123,10 +123,12 @@ const recentFiles = [
 
 export default function FileManager() {
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="flex flex-col gap-6 md:gap-8 mx-auto px-4 py-6 md:py-12">
       {/* Header */}
       <div className="flex flex-wrap justify-between items-center gap-8 w-full">
-        <h2 className="w-fit sm:w-xs font-bold text-2xl truncate">All Media</h2>
+        <h2 className="w-fit sm:w-xs font-bold text-primary text-2xl md:text-3xl truncate">
+          All Media
+        </h2>
         <div className="flex md:justify-end items-center gap-4 w-full sm:w-sm md:max-w-4xl">
           <Input
             placeholder="Search..."

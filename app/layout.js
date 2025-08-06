@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       >
         <ContextProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="flex text-foreground">
+            <div className="flex text-foreground ">
               {/* Sidebar */}
               <Sidebar />
 
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
               <div className="flex flex-col w-full">
                 <Header />
                 {/* Scrollable content area */}
-                <div className="overflow-y-auto md:mt-6">{children}</div>
+                <div className="overflow-y-auto">{children}</div>
               </div>
             </div>
           </ThemeProvider>

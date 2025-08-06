@@ -101,7 +101,7 @@ const scatterData = [
 
 const Home = () => {
   return (
-    <div className="p-3 md:p-5 space-y-12">
+    <div className="flex flex-col gap-4 px-4 py-6 md:py-12">
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-card p-4 rounded-xl shadow flex flex-col items-center gap-4 border">

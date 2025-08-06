@@ -42,8 +42,8 @@ const Sidebar = () => {
     { href: "/tasks/kanban", label: "kanban" },
   ];
   const linksForms = [
-    { href: "/forms/formsElements", label: "Forms Elements" },
-    { href: "/forms/formLayout", label: "Form Layout" },
+    { href: "/forms/formsElements", label: "Elements" },
+    { href: "/forms/formLayout", label: "Layout" },
   ];
   const linksTable = [
     { href: "/table/basicTable", label: "Basic Table" },
@@ -89,7 +89,7 @@ const Sidebar = () => {
       className={`h-screen w-full z-50 ${
         sidebar ? "hidden lg:flex" : "lg:hidden flex"
       }
-    flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground absolute left-0 top-0 lg:sticky z-10`}
+    flex-col bg-sidebar border-r border-border max-w-xs text-sidebar-foreground fixed left-0 top-0 lg:sticky z-10`}
     >
       {/* Top Logo/Header */}
       <header className="flex items-center gap-3 px-4 py-2">

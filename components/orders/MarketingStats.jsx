@@ -1,7 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   TrendingUp,
   TrendingDown,
@@ -36,18 +35,17 @@ export default function MarketingStats() {
   ];
 
   return (
-    <div className="gap-4 grid grid-cols-1 sm:grid-cols-3">
+    <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {stats.map((stat, idx) => (
         <Card key={idx}>
-          <CardHeader className="flex flex-row justify-between items-center space-y-0 pb-2">
-            <CardTitle className="flex items-center gap-2 font-medium text-sm">
-              {stat.icon}
-              {stat.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+          <CardTitle className="flex flex-col justify-center items-center gap-2 font-medium text-sm">
+            {stat.icon}
+            {stat.title}
+          </CardTitle>
+
+          <CardContent className="text-center">
             <div className="font-bold text-2xl">{stat.value}</div>
-            <p className="flex items-center gap-1 mt-1 text-muted-foreground text-xs">
+            <p className="flex items-center gap-1 mx-auto mt-1 w-fit text-muted-foreground text-xs">
               {stat.changeType === "up" ? (
                 <TrendingUp className="w-4 h-4 text-green-500" />
               ) : (

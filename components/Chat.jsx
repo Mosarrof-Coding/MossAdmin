@@ -10,6 +10,8 @@ import {
   Send,
   Search,
   ChevronRight,
+  UserRoundSearch,
+  UserRoundX,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -110,13 +112,17 @@ const ChatComponent = () => {
     ]);
     setNewMessage("");
   };
+  // asider
+  const [user, setUser] = useState();
 
   return (
-    <>
-      <div className="flex flex-wrap justify-between items-center py-6 text-sm">
-        <h3 className="font-medium text-2xl">Chat</h3>
+    <div className="pt-6 md:pt-12">
+      <div className="flex flex-wrap justify-between items-center mb-2 px-4 text-sm">
+        <h3 className="font-semibold text-primary text-2xl md:text-3xl">
+          Chat
+        </h3>
         <div className="flex items-center gap-1 text-lg">
-          <Link href="/" className="">
+          <Link href="/" className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight className="inline-block mt-0.5" size={18} />
@@ -124,9 +130,15 @@ const ChatComponent = () => {
         </div>
       </div>
 
-      <div className="flex gap-4 h-[80dvh]">
+      <div className="relative flex gap-4 min-h-screen">
         {/* Sidebar */}
-        <aside className="space-y-4 bg-card/40 p-4 rounded-xl w-1/3 overflow-hidden">
+        <aside
+          className={`space-y-4 p-4 rounded-xl w-1/3 min-w-fit  ${
+            user
+              ? "absolute right-0 top-0 z-20 bg-card h-full"
+              : "hidden md:block bg-card/40"
+          }`}
+        >
           {/* Search */}
           <div className="relative">
             <Search className="top-2.5 left-3 absolute w-4 h-4 text-muted-foreground" />
@@ -138,7 +150,7 @@ const ChatComponent = () => {
           </div>
 
           {/* User List */}
-          <div className="space-y-3 h-[70vh] overflow-y-auto">
+          <div className="space-y-3">
             {chatUsers.map((user, idx) => (
               <div
                 key={idx}
@@ -167,10 +179,21 @@ const ChatComponent = () => {
         </aside>
 
         {/* Chat Section */}
-        <section className="flex flex-col flex-1 bg-card/40 rounded-xl overflow-hidden">
+        <div className="flex flex-col flex-1 bg-card/40 rounded-xl">
           {/* Header */}
           <header className="flex justify-between items-center bg-card/40 p-4 border-b">
             <div className="flex items-center gap-3">
+              <button
+                className="md:hidden pr-2 border-r-4 cursor-pointer"
+                onClick={() => setUser(!user)}
+              >
+                {user ? (
+                  <UserRoundSearch className="size-8" />
+                ) : (
+                  <UserRoundX className="size-8" />
+                )}
+              </button>
+
               <img
                 src={selectedUser.img}
                 alt={selectedUser.name}
@@ -192,7 +215,7 @@ const ChatComponent = () => {
           </header>
 
           {/* Messages */}
-          <div className="flex-1 space-y-6 bg-card/40/80 p-6 w-full overflow-y-auto">
+          <div className="flex-1 space-y-6 bg-card/40/80 p-6 w-full h-full">
             {messages.map((msg, index) => (
               <div
                 key={index}
@@ -220,7 +243,7 @@ const ChatComponent = () => {
           </div>
 
           {/* Input Footer */}
-          <footer className="bg-card/40 p-4 border-t">
+          <footer className="bg-card/40 p-4 pb-6 md:pb-12 border-t">
             <div className="flex items-center gap-2">
               <button className="text-muted-foreground hover:text-primary">
                 <Smile size={20} />
@@ -247,9 +270,9 @@ const ChatComponent = () => {
               </button>
             </div>
           </footer>
-        </section>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

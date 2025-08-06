@@ -113,19 +113,21 @@ const StocksPage = () => {
       : transactions.filter((txn) => txn.type === filter);
 
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="flex flex-col gap-6 md:gap-8 px-4 py-6 md:py-12">
       {/* Page Header */}
-      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+      <div className="flex flex-wrap justify-between items-center gap-4">
         <div>
-          <h3 className="font-bold text-2xl">Stocks</h3>
+          <h3 className="font-semibold text-primary text-2xl md:text-3xl">
+            Stocks
+          </h3>
           <Badge variant="outline">Updated:{new Date().toLocaleString()}</Badge>
         </div>
         <div className="flex items-center gap-2">
-          <Link href={"/"} className="text-xl">
+          <Link href={"/"} className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight size={18} />
-          <h3 className="text-primary text-xl">Stocks</h3>
+          <h3 className="text-primary text-lg">Stocks</h3>
         </div>
       </div>
 
@@ -297,7 +299,7 @@ const StocksPage = () => {
           <CardTitle>Recent Transactions</CardTitle>
           <div className="flex items-center gap-2">
             <select
-              className="px-3 py-1 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm cursor-pointer"
+              className="bg-background px-3 py-1 border border-border rounded focus:outline-none focus:ring-2 focus:ring-primary text-sm cursor-pointer"
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
             >

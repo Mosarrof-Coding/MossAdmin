@@ -123,12 +123,19 @@ const EmailInboxPage = () => {
     return true;
   });
 
+  // compose
+  const [compose, setCompose] = useState();
   return (
-    <>
-      <div className="flex flex-wrap justify-between items-center p-3 md:p-5 text-sm">
-        <h3 className="font-medium text-2xl">Inbox</h3>
+    <div className="px-4 py-6 mg:py-12">
+      <div className="flex flex-wrap justify-between items-center mb-2 text-sm">
+        <div className="flex items-center gap-2">
+          <button className="setmail"></button>
+          <h3 className="font-semibold text-primary text-2xl lg:text-3xl">
+            Inbox
+          </h3>
+        </div>
         <div className="flex items-center gap-1 text-lg">
-          <Link href="/" className="">
+          <Link href="/" className="font-bold">
             Home
           </Link>
           <ChevronRight className="inline-block mt-0.5" size={18} />
@@ -136,9 +143,9 @@ const EmailInboxPage = () => {
         </div>
       </div>
 
-      <div className="gap-6 grid grid-cols-[240px_1fr] bg-background h-screen text-foreground">
+      <div className="flex gap-4 bg-background text-foreground">
         {/* Sidebar */}
-        <aside className="flex flex-col gap-2 bg-gray-400/5 p-4 rounded-xl">
+        <aside className="hidden md:flex flex-col gap-2 p-2 lg:p-4 rounded-xl min-w-[260px]">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-semibold text-xl">Mailbox</h2>
             <Button size="icon" variant="outline">
@@ -174,9 +181,9 @@ const EmailInboxPage = () => {
         </aside>
 
         {/* Main content */}
-        <main className="relative space-y-6 bg-gray-400/5 p-6 rounded-xl overflow-y-auto">
+        <div className="relative space-y-4 p-2 lg:p-6 rounded-xl w-full">
           {/* Search and Filter */}
-          <div className="flex justify-between items-center">
+          <div className="hidden sm:flex justify-between items-center">
             <h1 className="font-bold text-2xl">Inbox</h1>
             <Input className="w-1/3 min-w-[240px]" placeholder="Search..." />
           </div>
@@ -209,7 +216,7 @@ const EmailInboxPage = () => {
               <div
                 key={msg.id}
                 className={cn(
-                  "flex items-center gap-4 hover:bg-muted/40 shadow-sm p-3 border rounded-xl transition",
+                  "flex items-center gap-2 lg:gap-4 hover:bg-muted/40 shadow-sm p-3 border rounded-xl transition",
                   !msg.read && "bg-muted/30"
                 )}
               >
@@ -219,7 +226,7 @@ const EmailInboxPage = () => {
                   <AvatarFallback>{msg.sender.slice(0, 2)}</AvatarFallback>
                 </Avatar>
 
-                <div className="flex-1">
+                <div className="md:flex-1">
                   <div className="flex justify-between items-center">
                     <h4 className="font-medium">{msg.sender}</h4>
                     <span className="text-muted-foreground text-sm">
@@ -235,7 +242,7 @@ const EmailInboxPage = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap justify-center items-center gap-1 md:gap-2">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -280,13 +287,88 @@ const EmailInboxPage = () => {
           {/* Floating Action Button (FAB) */}
           <Button
             variant="default"
-            className="right-6 bottom-6 fixed shadow-lg p-4 rounded-full"
+            className="right-6 bottom-6 fixed shadow-lg rounded-full"
+            onClick={() => setCompose(!compose)}
           >
             <Pencil className="mr-2" /> Compose
           </Button>
-        </main>
+          {compose && (
+            <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-20">
+              <div className="relative bg-white shadow-lg p-6 rounded-lg w-full max-w-2xl animate-fadeIn">
+                {/* Close Button */}
+                <button
+                  onClick={() => setCompose(!compose)}
+                  className="top-4 right-4 absolute text-gray-500 hover:text-red-600 text-xl"
+                >
+                  &times;
+                </button>
+
+                {/* Header */}
+                <h2 className="mb-4 font-semibold text-gray-800 text-xl">
+                  Compose Message
+                </h2>
+
+                {/* Form */}
+                <form className="space-y-4">
+                  {/* To */}
+                  <div>
+                    <label className="block mb-1 font-medium text-gray-600 text-sm">
+                      To
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="recipient@example.com"
+                      className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-sm"
+                    />
+                  </div>
+
+                  {/* Subject */}
+                  <div>
+                    <label className="block mb-1 font-medium text-gray-600 text-sm">
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Subject of the message"
+                      className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-sm"
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block mb-1 font-medium text-gray-600 text-sm">
+                      Message
+                    </label>
+                    <textarea
+                      rows="6"
+                      placeholder="Write your message here..."
+                      className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-sm resize-none"
+                    ></textarea>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex justify-end gap-2 pt-4">
+                    <button
+                      type="button"
+                      onClick={() => setCompose(!compose)}
+                      className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded text-gray-700 text-sm"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded text-white text-sm"
+                    >
+                      Send
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

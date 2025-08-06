@@ -44,25 +44,27 @@ const COLORS = ["hsl(145, 60%, 45%)", "hsl(220, 10%, 80%)"];
 
 const Ecommerce = () => {
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="flex flex-col gap-4 px-4 py-6 md:py-12">
       {/* Page Header */}
-      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
-        <h3 className="font-bold text-2xl">E-Commerce</h3>
-        <div className="flex items-center gap-2">
-          <Link href={"/"} className="text-xl">
+      <div className="flex flex-wrap justify-between items-center gap-4">
+        <h3 className="font-bold text-primary text-2xl md:text-3xl">
+          E-Commerce
+        </h3>
+        <div className="flex items-center gap-1">
+          <Link href={"/"} className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight size={18} />
-          <h3 className="text-primary text-xl">E-Commerce</h3>
+          <h3 className="text-primary text-lg">eCommerce</h3>
         </div>
       </div>
 
       {/* KPI Cards */}
       <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
-        <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
-          <Card className="">
+        <div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
+          <Card className="text-center">
             <CardHeader>
-              <ShieldCheck className="mb-6 size-20" />
+              <ShieldCheck className="mx-auto size-10 md:size-14" />
               <CardTitle className="text-muted-foreground text-sm">
                 Total Revenue
               </CardTitle>
@@ -74,9 +76,9 @@ const Ecommerce = () => {
               </p>
             </CardContent>
           </Card>
-          <Card className="">
+          <Card className="text-center">
             <CardHeader>
-              <CalendarArrowDown className="mb-6 size-20" />
+              <CalendarArrowDown className="mx-auto size-10 md:size-14" />
               <CardTitle className="text-muted-foreground text-sm">
                 Orders
               </CardTitle>
@@ -88,9 +90,9 @@ const Ecommerce = () => {
               </p>
             </CardContent>
           </Card>
-          <Card className="">
+          <Card className="text-center">
             <CardHeader>
-              <UsersRound className="mb-6 size-20" />
+              <UsersRound className="mx-auto size-10 md:size-14" />
               <CardTitle className="text-muted-foreground text-sm">
                 Customers
               </CardTitle>
@@ -102,9 +104,9 @@ const Ecommerce = () => {
               </p>
             </CardContent>
           </Card>
-          <Card className="">
+          <Card className="text-center">
             <CardHeader>
-              <TicketSlash className="mb-6 size-20" />
+              <TicketSlash className="mx-auto size-10 md:size-14" />
               <CardTitle className="text-muted-foreground text-sm">
                 Refunds
               </CardTitle>

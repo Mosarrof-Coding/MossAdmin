@@ -33,16 +33,18 @@ const campaignData = [
 
 const MarketingPage = () => {
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="flex flex-col gap-4 px-4 py-6 md:py-12">
       {/* Page Header */}
-      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
-        <h3 className="font-bold text-2xl">Marketing</h3>
-        <div className="flex items-center gap-2">
-          <Link href={"/"} className="text-xl">
+      <div className="flex flex-wrap justify-between items-center gap-4">
+        <h3 className="font-bold text-primary text-2xl md:text-3xl">
+          Marketing
+        </h3>
+        <div className="flex items-center gap-1">
+          <Link href={"/"} className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight size={18} />
-          <h3 className="text-primary text-xl">Marketing</h3>
+          <h3 className="text-primary text-lg">Marketing</h3>
         </div>
       </div>
 

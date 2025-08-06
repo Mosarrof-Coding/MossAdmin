@@ -41,13 +41,15 @@ const tasks = {
 
 const Kanban = () => {
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="flex flex-col gap-6 md:gap-8 mx-auto px-4 py-6 md:py-12">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h2 className="font-semibold text-xl tracking-tight">Kanban Board</h2>
+        <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">
+          Kanban Board
+        </h2>
         <div className="flex gap-2">
           <Button variant="outline">
-            <Plus className="mr-2 w-4 h-4" />
+            <Plus className="mr-1 w-4 h-4" />
             New Task
           </Button>
           <Button variant="default">
@@ -57,13 +59,13 @@ const Kanban = () => {
       </div>
 
       {/* Board */}
-      <div className="gap-4 grid grid-cols-1 md:grid-cols-3">
+      <div className="gap-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {/* Column: To Do */}
         <Card className="bg-muted/40">
           <CardHeader>
             <CardTitle className="text-lg">To Do</CardTitle>
           </CardHeader>
-          <ScrollArea className="h-[500px]">
+          <ScrollArea className="">
             <CardContent className="space-y-4">
               {tasks.todo.map((task, index) => (
                 <TaskCard key={index} task={task} />
@@ -77,7 +79,7 @@ const Kanban = () => {
           <CardHeader>
             <CardTitle className="text-lg">In Progress</CardTitle>
           </CardHeader>
-          <ScrollArea className="h-[500px]">
+          <ScrollArea className="p-0">
             <CardContent className="space-y-4">
               {tasks.inProgress.map((task, index) => (
                 <TaskCard key={index} task={task} />
@@ -91,7 +93,7 @@ const Kanban = () => {
           <CardHeader>
             <CardTitle className="text-lg">Completed</CardTitle>
           </CardHeader>
-          <ScrollArea className="h-[500px]">
+          <ScrollArea className="">
             <CardContent className="space-y-4">
               {tasks.done.map((task, index) => (
                 <TaskCard key={index} task={task} />
@@ -106,24 +108,24 @@ const Kanban = () => {
 
 const TaskCard = ({ task }) => {
   return (
-    <div className="bg-card shadow p-4 rounded-xl">
+    <div className="bg-card shadow p-2 xl:p-4 rounded-xl">
       <h4 className="mb-2 font-semibold">{task.title}</h4>
-      <div className="flex justify-between items-center text-muted-foreground text-sm">
+      <div className="flex justify-between items-center mb-3 text-muted-foreground text-sm">
         <span className="bg-chart-4 px-2 py-1 rounded-full font-medium text-yellow-800 text-xs">
           {task.priority}
         </span>
-        <span>{task.due}</span>
-      </div>
-      <div className="flex justify-end mt-3">
-        <img
-          src={task.assignee}
-          alt="Assignee"
-          className="ring-border rounded-full ring-2 w-8 h-8"
-        />
+        <div className="flex items-center gap-2">
+          <span>{task.due}</span>
+          <img
+            src={task.assignee}
+            alt="Assignee"
+            className="ring-border rounded-full ring-2 w-8 h-8"
+          />
+        </div>
       </div>
 
       <ScrollArea className="border w-full h-80">
-        <div className="space-y-4 p-4">
+        <div className="space-y-4 p-2 xl:p-4">
           <div className="bg-gray-200 rounded h-24" />
           <div className="bg-gray-200 rounded h-24" />
           <div className="bg-gray-200 rounded h-24" />

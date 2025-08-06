@@ -21,6 +21,8 @@ import {
   Clock,
   Inbox,
   ChevronRight,
+  Bird,
+  Gem,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -64,18 +66,21 @@ const chartData = [
 const subscriptions = [
   {
     plan: "Basic",
+    icon: <Bird className="mx-auto size-8 md:size-12 text-primary" />,
     price: "$29/month",
     users: "1,230",
     trend: "+4.2%",
   },
   {
     plan: "Pro",
+    icon: <DollarSign className="mx-auto size-8 md:size-12 text-chart-4" />,
     price: "$59/month",
     users: "2,875",
     trend: "+6.8%",
   },
   {
     plan: "Enterprise",
+    icon: <Gem className="mx-auto size-8 md:size-12 text-destructive" />,
     price: "$149/month",
     users: "1,005",
     trend: "+2.1%",
@@ -109,18 +114,18 @@ const recentActivity = [
 
 const SassPage = () => {
   return (
-    <div className="space-y-4 p-3 md:p-5">
+    <div className="flex flex-col gap-6 md:gap-8 px-4 py-6 md:py-12">
       {/* Page Header */}
-      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+      <div className="flex flex-wrap justify-between items-center gap-4">
         <div>
-          <h3 className="font-bold text-2xl">Sass</h3>
+          <h3 className="font-semibold text-2xl md:text-3xl">Sass</h3>
         </div>
         <div className="flex items-center gap-2">
-          <Link href={"/"} className="text-xl">
+          <Link href={"/"} className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight size={18} />
-          <h3 className="text-primary text-xl">Sass</h3>
+          <h3 className="text-primary text-lg">Sass</h3>
         </div>
       </div>
 
@@ -184,19 +189,29 @@ const SassPage = () => {
       </Card>
 
       {/* Subscription Plans */}
-      <div className="gap-4 grid grid-cols-1 md:grid-cols-3">
-        {subscriptions.map((sub, i) => (
-          <Card key={i}>
-            <CardHeader>
-              <CardTitle>{sub.plan}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="font-semibold text-xl">{sub.price}</p>
-              <p className="text-muted-foreground text-sm">{sub.users} users</p>
-              <p className="mt-1 text-green-500 text-xs">Trend: {sub.trend}</p>
-            </CardContent>
-          </Card>
-        ))}
+      <div>
+        <h4 className="font-semibold text-2xl">Subscription Plane</h4>
+        <p className="mb-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molese d
+          eaque at minima cum!
+        </p>
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-3">
+          {subscriptions.map((sub, i) => (
+            <Card key={i} className="text-center">
+              <CardHeader>
+                <span>{sub.icon}</span>
+                <CardTitle>{sub.plan}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-semibold text-xl">{sub.price}</p>
+                <p className="text-muted-foreground text-sm">
+                  {sub.users} users
+                </p>
+                <p className="mt-1 text-primary text-xs">Trend: {sub.trend}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Upcoming Schedule & Recent Activity */}

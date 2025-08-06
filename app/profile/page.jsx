@@ -15,7 +15,7 @@ import {
 
 const ProfilePage = () => {
   return (
-    <div className="space-y-10 mx-auto p-3 md:p-5 w-full">
+    <div className="flex flex-col gap-6 md:gap-8 mx-auto px-4 py-6 md:py-12 w-full">
       {/* Header */}
       <div className="flex items-center gap-4">
         <img
@@ -33,16 +33,16 @@ const ProfilePage = () => {
         </div>
 
         <div className="flex items-center gap-3 ml-auto">
-          <span className="inline-block p-1.5 border text-border hover:border-foreground rounded-full hover:text-foreground transition-all duration-300 cursor-pointer">
+          <span className="inline-block bg-foreground/20 p-2 rounded-full text-foreground hover:text-destructive transition-all duration-300 cursor-pointer">
             <Facebook />
           </span>
-          <span className="inline-block p-1.5 border text-border hover:border-foreground rounded-full hover:text-foreground transition-all duration-300 cursor-pointer">
+          <span className="inline-block bg-foreground/20 p-2 rounded-full text-foreground hover:text-destructive transition-all duration-300 cursor-pointer">
             <Linkedin />
           </span>
-          <span className="inline-block p-1.5 border text-border hover:border-foreground rounded-full hover:text-foreground transition-all duration-300 cursor-pointer">
+          <span className="inline-block bg-foreground/20 p-2 rounded-full text-foreground hover:text-destructive transition-all duration-300 cursor-pointer">
             <Instagram />
           </span>
-          <span className="inline-block p-1.5 border text-border hover:border-foreground rounded-full hover:text-foreground transition-all duration-300 cursor-pointer">
+          <span className="inline-block bg-foreground/20 p-2 rounded-full text-foreground hover:text-destructive transition-all duration-300 cursor-pointer">
             <Twitter />
           </span>
           <button className="flex items-center gap-1 bg-primary hover:bg-primary/90 ml-6 px-4 py-2 rounded-lg text-white transition">

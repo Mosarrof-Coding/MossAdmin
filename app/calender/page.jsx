@@ -125,18 +125,20 @@ export default function Calendar() {
   };
 
   return (
-    <div className="mx-auto p-4 w-full">
+    <div className="flex flex-col gap-6 md:gap-8 mx-auto px-4 py-6 md:py-12 w-full">
       {/* Page Header */}
-      <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
+      <div className="flex flex-wrap justify-between items-center gap-4">
         <div>
-          <h3 className="font-bold text-2xl">Calender</h3>
+          <h3 className="font-semibold text-primary text-2xl md:text-3xl">
+            Calender
+          </h3>
         </div>
         <div className="flex items-center gap-2">
-          <Link href={"/"} className="text-xl">
+          <Link href={"/"} className="font-bold text-lg">
             Home
           </Link>
           <ChevronRight size={18} />
-          <h3 className="text-primary text-xl">Calender</h3>
+          <h3 className="text-primary text-lg">Calender</h3>
         </div>
       </div>
 
